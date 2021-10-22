@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="default.css"/>
+        <h:outputStylesheet name="cssLayout.css"/>
+        <title>Sistema 1.0</title>
+    </h:head>
+    <h:body>
+        <b:navBar fluid="true" brand="Sistema"
+                  brandHref="/Lec03-1/faces/principal.xhtml">
+            <b:navbarLinks pull="left">
+                <b:image library="images" name="logo.png" height="55px"/>
+            </b:navbarLinks>          
+            <b:navbarLinks>
+                <b:dropMenu value="Estudiantes" icon-awesome="fa-group">
+                    <b:navLink value="Gestión" icon="fa-newspaper-o"
+                               href="/Lec03-1/faces/estudiante/list.xhtml"/>
+                    <b:navLink value="Matrícula" href="#"/>
+                    <b:navLink value="Expediente" href="#"/>
+                    <b:dropMenu value="Certificaciones" icon-awesome="fa-group">
+                        <b:navLink value="Notas" href="/Lec03-1/faces/reportes/certificacion.xhtml"/>
+                        <b:navLink value="Respaldo" href="/Lec03-1/faces/respaldo/respaldo.xhtml"/>
+                    </b:dropMenu>
+                </b:dropMenu>
+                <b:dropMenu value="Prospectos" icon-awesome="fa-group">
+                    <b:navLink value="Registro" href="/Lec03-1/faces/prospecto/registro.xhtml"/>
+                    <b:navLink value="Reporte" href="/Lec03-1/faces/prospecto/reporte.xhtml"/>
+                    <b:navLink value="Json" href="/Lec03-1/faces/prospecto/prospecto_json.xhtml"/>
+                </b:dropMenu>
+                 <b:dropMenu value="Servicios Web" icon-awesome="fa-group">
+                    <b:navLink value="WS Articulo" href="/Lec03-1/faces/ws/pruebaWS.xhtml"/>
+                </b:dropMenu>
+                <b:navLink value="Cliente 01" href="/Lec03-1/faces/cliente01.xhtml"/>
+                <b:navLink value="Cliente 02" href="/Lec03-1/faces/cliente02.xhtml"/>
+            </b:navbarLinks>
+            
+            <b:navbarLinks pull="right" style-class="hidden-xs">
+                <b:dropMenu value="Configuration" icon-awesome="fa-cog">
+                    <b:navLink value="Cerrar"
+                               href="/Lec03-1/faces/index.xhtml"
+                               icon-awesome="fa-door-open"/>
+                    <b:navLink value="Perfil" icon-awesome="fa-user" href="#"/>
+                    <b:navLink value="Temas">
+                        <h:form style="display: inline" styleClass="form-inline">
+                            <b:selectOneMenu value="#{temaController.tema}"
+                                             style="width: 180px;margin: 8px"
+                                             onchange="$('.theme-selector-button').click()">
+                                <f:selectItem itemValue="default" itemLabel="default"/>
+                                <f:selectItem itemValue="patternfly" itemLabel="patternfly"/>
+                                <f:selectItem itemValue="cerulean" itemLabel="cerulean"/>
+                                <f:selectItem itemValue="cosmo" itemLabel="cosmo"/>
+                                <f:selectItem itemValue="cyborg" itemLabel="cyborg"/>
+                                <f:selectItem itemValue="darkly" itemLabel="darkly"/>
+                                <f:selectItem itemValue="flatly" itemLabel="flatly"/>
+                                <f:selectItem itemValue="journal" itemLabel="journal"/>
+                                <f:selectItem itemValue="lumen" itemLabel="lumen"/>
+                                <f:selectItem itemValue="paper" itemLabel="paper"/>
+                                <f:selectItem itemValue="readable" itemLabel="readable"/>
+                                <f:selectItem itemValue="sandstone" itemLabel="sandstone"/>
+                            </b:selectOneMenu>
+                            <b:commandButton class="theme-selector-button" value="select" style="display:none"/>
+                                             
+                        </h:form>
+                        
+                    </b:navLink>
+                        
+                        
+                </b:dropMenu>
+            </b:navbarLinks> 
+        </b:navBar>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

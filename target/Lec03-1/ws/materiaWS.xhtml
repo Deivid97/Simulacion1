@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="materiaWSForm">
+                    <b:container fluid="true">
+                        <b:panel title="Materia" look="primary">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="idMateria" for="idMateria"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText id="idMateria" value="#{materiaController.idMateria}"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="tiraJson" for="tiraJson"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputTextarea id="tiraJson" rows="3" value="#{materiaController.tiraJson}"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="GET ALL" action="#{materiaController.hacerGetAll()}" 
+                                                     look="primary" style="width:20%"/>
+                                    <b:commandButton value="GET" action="#{materiaController.hacerGet()}" 
+                                                     look="info" style="width:20%"/>                                   
+                                    <b:commandButton value="PUT" action="#{materiaController.hacerPut()}" 
+                                                     look="success" style="width:20%"/>
+                                    <b:commandButton value="POST" action="#{materiaController.hacerPost()}" 
+                                                     look="warning" style="width:20%"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>.                            
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Salidas" for="salida"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputTextarea id="salida" rows="10" value="#{materiaController.salida}"/>
+                                </b:column>
+                            </b:row>        
+                        </b:panel>
+                                
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+
+            <ui:define name="content">
+                
+                <h:form>
+                    
+                    <b:dataTable value="#{estudianteController.estudiantes}"
+                                 var="estudiante"
+                                 excel="true"
+                                 csv="true"
+                                 pdf="true"
+                                 columnVisibility="true"
+                                 copy="true"
+                                 print="true">
+                        <b:dataTableColumn value="#{estudiante.id}"
+                                           width="8%"
+                                           label="Identificación"/>
+                        <b:dataTableColumn value="#{estudiante.nombre}"
+                                           width="15%"
+                                           label="Nombre"/>
+                        <b:dataTableColumn value="#{estudiante.apellido1}"
+                                           width="19%"
+                                           label="Primer Apellido"/>
+                        <b:dataTableColumn value="#{estudiante.apellido2}"
+                                           width="19%"
+                                           label="Segundo Apellido"/>
+                        <b:dataTableColumn value="#{estudiante.fechaNaci}"
+                                           width="10%"
+                                           style="text-align: center"
+                                           label="F. Naci."/>
+                        <b:dataTableColumn value="#{estudiante.fechaIngr}"
+                                           width="10%"
+                                           style="text-align: center"
+                                           label="F. Ingr."/>
+                        <b:dataTableColumn value="#{estudiante.genero}"
+                                           width="8%"
+                                           style="text-align: center"
+                                           label="Género"/>
+                        <b:dataTableColumn width="10%"
+                                           style="text-align: center"
+                                           label="Accion">
+                            <b:commandButton value="Editar"     
+                                             action="#{estudianteController.edita(estudiante.id)}"/>
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

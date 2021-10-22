@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="registroProspectoForm">
+                    <b:panel title="Prospecto" look="primary">
+                        <b:row tooltip="La identificación no se modifica">
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cédula" for="cedula"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Cédula" 
+                                             mask="999999999"
+                                             id="cedula"
+                                             required="true"
+                                             value="#{prospectoController.cedula}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="cedula"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Nombre" for="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Nombre" 
+                                             id="nombre"
+                                             required="true"
+                                             value="#{prospectoController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Primer Apellido" for="apellido1"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Primer Apellido"
+                                             id="apellido1"
+                                             required="true"
+                                             value="#{prospectoController.apellido1}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido1"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Segundo Apellido" for="apellido2"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Segundo Apellido"
+                                             id="apellido2"
+                                             required="true"
+                                             value="#{prospectoController.apellido2}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido2"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Fecha de Nacimiento" for="fechaNaci"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:datepicker id="fechaNaci"
+                                              required="true"
+                                              value="#{prospectoController.fechaNacimiento}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="fechaNaci"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Fecha de Graduación" for="fechaGraduacion"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:datepicker id="fechaGraduacion"
+                                              required="true"
+                                              value="#{prospectoController.fechaGraduacionColegio}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="fechaGraduacion"/>
+                            </b:column>
+                        </b:row>
+                        
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Fecha Posible Ingreso" for="fechaIngr"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:datepicker id="fechaIngr"
+                                              required="true"
+                                              value="#{prospectoController.fechaPosibleIngreso}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="fechaIngr"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Correo" for="correo"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Correo"
+                                             id="correo"
+                                             mask="email"
+                                             required="true"
+                                             value="#{prospectoController.correo}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="correo"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Celular" for="celular"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Celular"
+                                             id="celular"
+                                             mask="9999-9999"
+                                             required="true"
+                                             value="#{prospectoController.celular}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="celular"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Insertar"
+                                                 action="#{prospectoController.inserta()}"
+                                                 look="primary"
+                                                 style="width: 100%"/>
+                            </b:column>   
+                            <b:column medium-screen="2">
+                                <p:captcha label="Check"/>
+                            </b:column>
+                        </b:row>    
+                    </b:panel>
+                </h:form> 
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
